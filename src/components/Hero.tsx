@@ -16,17 +16,13 @@ const Hero = () => {
       {/* Content Container with Smooth Fade */}
       <div className="relative h-full flex items-center justify-center bg-gradient-to-b from-transparent to-black/30">
         <div className="text-center text-white px-4 max-w-4xl animate-fadeIn">
-          {/* Main Heading with Balanced Spacing */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 font-montserrat leading-tight tracking-normal">
-            <span className="block mb-2">Where High Quality</span>
-            <span className="block">ABA & Comfort Meet</span>
+            <span className="block mb-2">Growing Together</span>
+            <span className="block">With Love & Care</span>
           </h1>
-
-          {/* Subheading with Clear Typography */}
+          
           <p className="text-lg sm:text-xl md:text-2xl mb-12 font-montserrat max-w-2xl mx-auto leading-relaxed">
-            Services available in the clinic, daycare,
-            <br className="hidden sm:block" /> 
-            community, and in-home settings
+            Creating happy stories, one milestone at a time
           </p>
 
           {/* Accessible Button Group */}

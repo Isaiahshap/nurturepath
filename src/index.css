@@ -6,3 +6,11 @@
 body {
   @apply bg-white text-black;
 }
+
+html, body {
+  background-color: black;
+}
+
+#root {
+  background-color: white;
+}
