@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaFileAlt, FaPhoneAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaShieldAlt, FaFileAlt, FaPhoneAlt, FaCheckCircle, FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const InsuranceHero = () => (
@@ -14,11 +14,19 @@ const InsuranceHero = () => (
     />
     <div className="relative h-full flex items-center justify-center bg-gradient-to-b from-transparent to-black/30">
       <div className="text-center text-white px-4 max-w-4xl">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 font-lato">
-          Insurance Coverage
+        <motion.span 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-block mb-4 text-purple-300 font-montserrat font-semibold tracking-wider uppercase"
+        >
+          Making Therapy Accessible
+        </motion.span>
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat">
+          Insurance & Coverage
         </h1>
-        <p className="text-xl md:text-2xl font-lato max-w-2xl mx-auto">
-          We make getting coverage simple and straightforward
+        <p className="text-xl md:text-2xl font-montserrat max-w-2xl mx-auto">
+          We believe quality therapy should be accessible to all families
         </p>
       </div>
     </div>
@@ -38,92 +46,104 @@ const Insurance = () => {
     "Humana", "Kaiser Permanente", "Anthem", "Oxford"
   ];
 
+  const coverageTypes = [
+    {
+      icon: FaHeart,
+      title: "Couples Therapy",
+      description: "Coverage for relationship counseling and marriage therapy sessions.",
+      color: "from-purple-100 to-purple-200",
+      iconColor: "text-purple-600"
+    },
+    {
+      icon: FaShieldAlt,
+      title: "Family Sessions",
+      description: "Insurance support for family counseling and group therapy sessions.",
+      color: "from-blue-100 to-blue-200",
+      iconColor: "text-blue-600"
+    },
+    {
+      icon: FaFileAlt,
+      title: "Individual Growth",
+      description: "Coverage options for personal therapy focused on relationship dynamics.",
+      color: "from-green-100 to-green-200",
+      iconColor: "text-green-600"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <InsuranceHero />
       
       <motion.div {...fadeIn} className="container mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-lato">
-            We Take Care of <span className="text-purple-600">Everything</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat">
+            Simplified <span className="text-purple-600">Coverage</span> Process
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            At Nurture Path, we handle insurance verification and coverage details daily, 
-            ensuring your child can begin receiving services as quickly as possible.
+            We handle the insurance details so you can focus on what matters most - 
+            your relationships and emotional well-being.
           </p>
         </div>
 
-        {/* Insurance Process Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg"
-          >
-            <FaShieldAlt className="text-4xl text-purple-600 mb-4" />
-            <h3 className="text-2xl font-bold mb-3 font-lato">Coverage Verification</h3>
-            <p className="text-gray-700">
-              We work with all insurance types: self-funded, group, individual, in-state, 
-              out of state, and private plans.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg"
-          >
-            <FaFileAlt className="text-4xl text-purple-600 mb-4" />
-            <h3 className="text-2xl font-bold mb-3 font-lato">Benefit Analysis</h3>
-            <p className="text-gray-700">
-              We'll outline your coverage details, including potential coverage up to 100% 
-              or co-payments with annual deductibles.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg"
-          >
-            <FaPhoneAlt className="text-4xl text-purple-600 mb-4" />
-            <h3 className="text-2xl font-bold mb-3 font-lato">Direct Coordination</h3>
-            <p className="text-gray-700">
-              Our insurance team works directly with providers to obtain approval for 
-              ABA therapy on your behalf.
-            </p>
-          </motion.div>
+          {coverageTypes.map((type, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className={`bg-gradient-to-br ${type.color} p-8 rounded-3xl shadow-lg group relative overflow-hidden`}
+            >
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-400 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <type.icon className={`text-4xl ${type.iconColor} mb-4`} />
+              <h3 className="text-2xl font-bold mb-3 font-montserrat">
+                {type.title}
+              </h3>
+              <p className="text-gray-700">
+                {type.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Insurance Providers Section */}
-        <div className="bg-white rounded-3xl shadow-lg p-12 mb-20">
-          <h3 className="text-3xl font-bold mb-8 font-lato text-center">
-            Insurance Providers We Work With
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {insuranceProviders.map((provider, index) => (
-              <div 
-                key={index}
-                className="flex items-center space-x-2 text-gray-700"
-              >
-                <FaCheckCircle className="text-purple-600" />
-                <span>{provider}</span>
-              </div>
-            ))}
+        <motion.div 
+          {...fadeIn} 
+          className="bg-white rounded-3xl shadow-lg p-12 mb-20 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+          <div className="relative">
+            <h3 className="text-3xl font-bold mb-8 font-montserrat text-center">
+              Insurance Partners
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {insuranceProviders.map((provider, index) => (
+                <motion.div 
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center space-x-2 text-gray-700 bg-purple-50 p-4 rounded-xl"
+                >
+                  <FaCheckCircle className="text-purple-600" />
+                  <span className="font-montserrat">{provider}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-6 font-lato">
-            Don't see your insurance provider?
-          </h3>
-          <Link
-            to="/contact-us"
-            className="inline-flex items-center bg-purple-600 text-white px-8 py-4 rounded-full hover:bg-purple-700 transition-colors duration-300 font-lato"
-          >
-            Contact Us Today
-          </Link>
-          <p className="mt-4 text-gray-600">
-            We'll help verify your coverage and explore all available options.
-          </p>
+        <div className="text-center bg-purple-900 rounded-3xl p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+          <div className="relative">
+            <h3 className="text-2xl font-bold mb-6 font-montserrat text-white">
+              Don't see your insurance provider?
+            </h3>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center bg-white text-purple-900 px-8 py-4 rounded-full font-montserrat font-semibold hover:bg-purple-100 transition-all duration-300 hover:scale-105"
+            >
+              Contact Us Today
+            </Link>
+            <p className="mt-4 text-purple-100">
+              We'll help verify your coverage and explore all available options.
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>

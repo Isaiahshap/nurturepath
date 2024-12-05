@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaHeart, FaUsers, FaUser, FaQuoteLeft, FaAward, FaCertificate } from 'react-icons/fa';
 import { BsCheckCircleFill, BsStarFill, BsLightningFill, BsHeartFill } from 'react-icons/bs';
 import { HiArrowRight } from 'react-icons/hi';
+import TherapyImageCycle from '../components/TherapyImageCycle';
 
 function Home() {
   const fadeIn = {
@@ -132,15 +133,15 @@ function Home() {
 
           {/* Right Image */}
           <div className="flex-1">
-            <motion.img
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              src="/images/path.png"
-              alt="Therapy Journey Path"
-              className="w-full h-auto max-w-md mx-auto"
-            />
+              className="w-full max-w-md mx-auto"
+            >
+              <TherapyImageCycle />
+            </motion.div>
           </div>
         </div>
 
