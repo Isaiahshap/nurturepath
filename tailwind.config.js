@@ -17,7 +17,7 @@ export default {
         }
       },
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
       },
       backgroundColor: {
         'body': 'black',

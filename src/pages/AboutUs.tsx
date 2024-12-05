@@ -8,7 +8,7 @@ const AboutHero = () => (
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url("/images/about-hero.jpg")',
+        backgroundImage: 'url("/images/about.jpg")',
         filter: 'brightness(0.7)',
       }}
     />

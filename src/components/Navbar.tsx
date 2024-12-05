@@ -5,7 +5,7 @@ function Navbar() {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isLocationsOpen, setIsLocationsOpen] = useState(false);
 
-  const navLinkClasses = "relative text-gray-700 hover:text-purple-600 font-montserrat py-2 transition-colors duration-200 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-purple-600 after:left-0 after:bottom-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left";
+  const navLinkClasses = "relative text-gray-700 hover:text-purple-600 font-lato py-2 transition-colors duration-200 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-purple-600 after:left-0 after:bottom-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left";
   
   const dropdownClasses = "absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 transform opacity-0 scale-95 transition-all duration-200 ease-in-out origin-top";
   
@@ -79,16 +79,16 @@ function Navbar() {
               onMouseEnter={() => setIsAboutOpen(true)}
               onMouseLeave={() => setIsAboutOpen(false)}
             >
-              <button className={navLinkClasses + " flex items-center"}>
+              <Link to="/about-us" className={navLinkClasses + " flex items-center"}>
                 About Us
                 <svg className="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
-              </button>
+              </Link>
               <div className={`${dropdownClasses} ${isAboutOpen ? 'opacity-100 scale-100' : ''}`}>
-                <Link to="/our-team" className={dropdownItemClasses}>Our Team</Link>
-                <Link to="/our-mission" className={dropdownItemClasses}>Our Mission</Link>
-                <Link to="/our-approach" className={dropdownItemClasses}>Our Approach</Link>
+                <Link to="/team" className={dropdownItemClasses}>Our Team</Link>
+                <Link to="/mission" className={dropdownItemClasses}>Our Mission</Link>
+                <Link to="/approach" className={dropdownItemClasses}>Our Approach</Link>
               </div>
             </div>
 
@@ -98,12 +98,12 @@ function Navbar() {
               onMouseEnter={() => setIsLocationsOpen(true)}
               onMouseLeave={() => setIsLocationsOpen(false)}
             >
-              <button className={navLinkClasses + " flex items-center"}>
+              <Link to="/locations" className={navLinkClasses + " flex items-center"}>
                 Locations
                 <svg className="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
-              </button>
+              </Link>
               <div className={`${dropdownClasses} ${isLocationsOpen ? 'opacity-100 scale-100' : ''}`}>
                 <Link to="/new-jersey" className={dropdownItemClasses}>New Jersey</Link>
                 <Link to="/texas" className={dropdownItemClasses}>Texas</Link>
@@ -113,13 +113,12 @@ function Navbar() {
 
             <Link to="/intake-form" className={navLinkClasses}>Intake Form</Link>
             <Link to="/insurance" className={navLinkClasses}>Insurance</Link>
-            <Link to="/blog" className={navLinkClasses}>Blog</Link>
           </div>
 
           {/* CTA Buttons with new animations */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              to="/apply"
+              to="/intake-form"
               className={ctaButtonClasses}
             >
               <span className="relative z-10">Apply For Services</span>
