@@ -5,33 +5,13 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/static/:path*",
-      "destination": "/static/:path*"
-    },
-    {
-      "source": "/images/:path*",
-      "destination": "/images/:path*"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/favicon.ico"
-    },
-    {
-      "source": "/manifest.json",
-      "destination": "/manifest.json"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/fonts/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -48,6 +28,5 @@
         }
       ]
     }
-  ],
-  "cleanUrls": true
+  ]
 } 
