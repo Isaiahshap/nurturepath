@@ -14,7 +14,6 @@ const IntakeForm = () => {
 
   const [sessionType, setSessionType] = useState('');
   const sessionRef = useRef(null);
-  const [isSessionTypeOpen, setIsSessionTypeOpen] = useState(false);
   const [relationshipStatus, setRelationshipStatus] = useState('');
   const [timeframe, setTimeframe] = useState('');
 

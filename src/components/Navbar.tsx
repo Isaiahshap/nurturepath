@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiMenu } from 'react-icons/hi';
 import MobileMenu from './MobileMenu';

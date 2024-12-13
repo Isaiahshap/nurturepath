@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FaPhone, 
@@ -8,7 +7,6 @@ import {
   FaLinkedin, 
   FaInstagram 
 } from 'react-icons/fa';
-import { BsArrowRight } from 'react-icons/bs';
 
 const Footer = () => {
   return (

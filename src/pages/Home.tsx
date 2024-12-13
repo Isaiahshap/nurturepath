@@ -1,9 +1,8 @@
-import React from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaHeart, FaUsers, FaUser, FaQuoteLeft, FaAward, FaCertificate } from 'react-icons/fa';
-import { BsCheckCircleFill, BsStarFill, BsLightningFill, BsHeartFill } from 'react-icons/bs';
+import { BsStarFill, BsHeartFill } from 'react-icons/bs';
 import { HiArrowRight } from 'react-icons/hi';
 import TherapyImageCycle from '../components/TherapyImageCycle';
 
