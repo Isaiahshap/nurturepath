@@ -12,8 +12,6 @@ import Mission from './pages/Mission';
 import Approach from './pages/Approach';
 import Locations from './pages/Locations';
 import NewJersey from './pages/NewJersey';
-import Texas from './pages/Texas';
-import Georgia from './pages/Georgia';
 import IntakeForm from './pages/IntakeForm';
 import Insurance from './pages/Insurance';
 import NewYork from './pages/NewYork';
@@ -44,10 +42,7 @@ function App() {
           {/* Location Routes */}
           <Route path="/locations" element={<Locations />} />
           <Route path="/new-york" element={<NewYork />} />
-          <Route path="/new-jersey" element={<NewJersey />} />
-          <Route path="/texas" element={<Texas />} />
-          <Route path="/georgia" element={<Georgia />} />
-          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/new-jersey" element={<NewJersey />} />          <Route path="/insurance" element={<Insurance />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/intake-form" element={<IntakeForm />} />
           <Route path="/contact" element={<Contact />} />
@@ -58,7 +53,7 @@ function App() {
       </main>
       <Footer />
     </div>
-  );
+  );    
 }
 
 export default App;
