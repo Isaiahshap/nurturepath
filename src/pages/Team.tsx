@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaCertificate, FaStar, FaLinkedin } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaCertificate, FaLinkedin } from 'react-icons/fa';
 
 const TeamHero = () => (
   <div className="relative h-[60vh] w-screen -ml-[50vw] left-1/2 right-1/2 mb-16">
@@ -42,34 +41,112 @@ const Team = () => {
 
   const teamMembers = [
     {
-      name: "Dr. Sarah Mitchell, LMFT",
-      role: "Lead Marriage & Family Therapist",
-      location: "Manhattan, NY",
-      image: "/images/therapist-1.jpg",
-      bio: "With over 15 years of experience, Dr. Mitchell specializes in helping couples navigate complex relationship dynamics and life transitions.",
-      specialties: ["Couples Therapy", "Premarital Counseling", "Family Systems"],
-      credentials: ["PhD in Marriage & Family Therapy", "Licensed MFT", "AAMFT Approved Supervisor"],
-      linkedin: "https://linkedin.com/in/sarahmitchell"
-    },
-    {
-      name: "Michael Rodriguez, LMFT",
+      name: "Dr. Sample One",
       role: "Family Systems Specialist",
-      location: "Brooklyn, NY",
-      image: "/images/therapist-2.jpg",
-      bio: "Michael brings a warm, collaborative approach to helping families strengthen their bonds and improve communication patterns.",
-      specialties: ["Family Therapy", "Blended Families", "Parent-Child Relations"],
-      credentials: ["MA in Psychology", "Licensed MFT", "Gottman Level 3 Trained"],
-      linkedin: "https://linkedin.com/in/michaelrodriguez"
+      location: "Manhattan, NY",
+      bio: "Specializing in helping families navigate transitions and improve communication patterns.",
+      specialties: ["Family Therapy", "Parenting Support", "Adolescent Counseling"],
+      credentials: ["PhD in Psychology", "Licensed MFT", "Family Systems Certified"],
+      linkedin: "#"
     },
     {
-      name: "Dr. Jennifer Park, LMFT",
-      role: "Couples Therapy Specialist",
+      name: "Dr. Sample Two",
+      role: "Couples Therapy Expert",
+      location: "Brooklyn, NY",
+      bio: "Focused on helping couples build stronger relationships through evidence-based approaches.",
+      specialties: ["Couples Therapy", "Premarital Counseling", "Relationship Issues"],
+      credentials: ["PsyD", "Licensed MFT", "Gottman Trained"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Three, LMFT",
+      role: "Marriage Counselor",
       location: "Jersey City, NJ",
-      image: "/images/therapist-3.jpg",
-      bio: "Dr. Park combines evidence-based approaches with compassionate care to help couples build stronger, more fulfilling relationships.",
-      specialties: ["Marriage Counseling", "Relationship Issues", "Trauma-Informed Care"],
-      credentials: ["PsyD in Clinical Psychology", "Licensed MFT", "EFT Certified"],
-      linkedin: "https://linkedin.com/in/jenniferpark"
+      bio: "Dedicated to helping couples restore trust and improve communication.",
+      specialties: ["Marriage Counseling", "Conflict Resolution", "Trust Building"],
+      credentials: ["MA in Counseling", "Licensed MFT", "EFT Trained"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Four, LMFT",
+      role: "Trauma Specialist",
+      location: "Long Island, NY",
+      bio: "Experienced in helping individuals and couples heal from past trauma.",
+      specialties: ["Trauma-Informed Care", "PTSD", "Couples Therapy"],
+      credentials: ["MS in Psychology", "Licensed MFT", "EMDR Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Dr. Sample Five",
+      role: "Relationship Expert",
+      location: "Hoboken, NJ",
+      bio: "Specializing in modern relationship dynamics and attachment patterns.",
+      specialties: ["Dating Issues", "Relationship Coaching", "Attachment Work"],
+      credentials: ["PhD in Clinical Psychology", "Licensed MFT", "Dating Coach Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Six, LMFT",
+      role: "Family Therapist",
+      location: "Newark, NJ",
+      bio: "Helping families build stronger connections and navigate life transitions.",
+      specialties: ["Family Systems", "Child Therapy", "Parent Coaching"],
+      credentials: ["MA in Family Therapy", "Licensed MFT", "Play Therapy Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Dr. Sample Seven",
+      role: "Group Therapy Specialist",
+      location: "Staten Island, NY",
+      bio: "Leading therapeutic groups for couples and families seeking community support.",
+      specialties: ["Group Therapy", "Couples Workshops", "Community Building"],
+      credentials: ["PhD in Group Psychology", "Licensed MFT", "Group Facilitator"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Eight, LMFT",
+      role: "Premarital Counselor",
+      location: "Manhattan, NY",
+      bio: "Preparing couples for marriage through structured counseling programs.",
+      specialties: ["Premarital Counseling", "Relationship Education", "Couples Prep"],
+      credentials: ["MA in Counseling", "Licensed MFT", "Prepare/Enrich Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Dr. Sample Nine",
+      role: "Multicultural Specialist",
+      location: "Queens, NY",
+      bio: "Experienced in working with diverse populations and cultural relationship dynamics.",
+      specialties: ["Cultural Counseling", "Interfaith Couples", "Immigration Issues"],
+      credentials: ["PhD in Multicultural Counseling", "Licensed MFT", "Cultural Competency"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Ten, LMFT",
+      role: "LGBTQ+ Specialist",
+      location: "Brooklyn, NY",
+      bio: "Supporting LGBTQ+ individuals and couples in their relationship journeys.",
+      specialties: ["LGBTQ+ Counseling", "Gender Identity", "Relationship Issues"],
+      credentials: ["MS in Clinical Psychology", "Licensed MFT", "LGBTQ+ Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Dr. Sample Eleven",
+      role: "Divorce Recovery Specialist",
+      location: "Jersey City, NJ",
+      bio: "Helping individuals and families navigate separation and divorce with dignity.",
+      specialties: ["Divorce Recovery", "Co-Parenting", "Life Transitions"],
+      credentials: ["PsyD", "Licensed MFT", "Mediation Certified"],
+      linkedin: "#"
+    },
+    {
+      name: "Sample Twelve, LMFT",
+      role: "Blended Family Expert",
+      location: "Bronx, NY",
+      bio: "Supporting blended families in creating harmonious household dynamics.",
+      specialties: ["Blended Families", "Step-Parenting", "Family Integration"],
+      credentials: ["MA in Family Studies", "Licensed MFT", "Family Life Educator"],
+      linkedin: "#"
     }
   ];
 
@@ -95,14 +172,6 @@ const Team = () => {
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl shadow-lg overflow-hidden group"
             >
-              <div className="aspect-w-4 aspect-h-3 relative">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
               <div className="p-8">
                 <div className="flex items-center gap-2 text-purple-600 mb-3">
                   <FaMapMarkerAlt className="text-lg" />

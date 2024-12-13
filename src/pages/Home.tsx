@@ -58,7 +58,7 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="pt-20 md:pt-0">
       <Hero />
       
       {/* Trust Indicators Section */}
@@ -104,13 +104,13 @@ function Home() {
         </div>
       </section>
     {/* Services Section */}
-    <section className="py-32 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
+    <section className="py-8 md:py-32 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       <motion.div {...fadeIn} className="container mx-auto px-4 max-w-6xl relative">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-0 lg:gap-16">
           {/* Left Content */}
-          <div className="flex-1">
-            <div className="text-center lg:text-left mb-20 lg:mb-0">
+          <div className="flex-1 w-full">
+            <div className="text-center lg:text-left">
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ function Home() {
                 transition={{ duration: 0.6 }}
                 className="inline-block mb-4 text-purple-600 font-semibold tracking-wider uppercase"
               >
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center justify-center lg:justify-start space-x-2">
                   <img 
                     src="/images/logo.png" 
                     alt="Nurture Path Logo" 
@@ -138,8 +138,8 @@ function Home() {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="flex-1">
+          {/* Right Image - Hidden on Mobile */}
+          <div className="flex-1 hidden lg:block">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -153,7 +153,7 @@ function Home() {
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 lg:mt-16">
           {serviceCards.map((card, index) => (
             <motion.div
               key={index}

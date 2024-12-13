@@ -7,7 +7,7 @@ const MissionHero = () => (
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url("/images/mission-hero.jpg")',
+        backgroundImage: 'url("/images/our-mission.jpg")',
         filter: 'brightness(0.7)',
       }}
     />

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ const NewJerseyHero = () => (
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url("/images/nj-hero.jpg")',
+        backgroundImage: 'url("/images/nj.jpg")',
         filter: 'brightness(0.7)',
       }}
     />
@@ -93,13 +92,6 @@ const NewJersey = () => {
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl shadow-lg overflow-hidden"
             >
-              <div className="aspect-w-16 aspect-h-9">
-                <img 
-                  src={location.image} 
-                  alt={location.name}
-                  className="object-cover w-full h-full"
-                />
-              </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-4 font-montserrat">{location.name}</h3>
                 <div className="space-y-3 text-gray-600">

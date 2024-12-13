@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
-import Careers from './pages/Careers';
 import Resources from './pages/Resources';
 import FAQs from './pages/FAQs';
 import Team from './pages/Team';
@@ -22,10 +21,13 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Accessibility from './pages/Accessibility';
+import JoinOurTeam from './pages/JoinOurTeam';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
         <Routes>
@@ -35,9 +37,9 @@ function App() {
           <Route path="/mission" element={<Mission />} />
           <Route path="/approach" element={<Approach />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/careers" element={<Careers />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/faqs" element={<FAQs />} />
+          <Route path="/join-our-team" element={<JoinOurTeam />} />
           
           {/* Location Routes */}
           <Route path="/locations" element={<Locations />} />

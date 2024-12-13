@@ -8,7 +8,7 @@ const InsuranceHero = () => (
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url("/images/insurance-hero.jpg")',
+        backgroundImage: 'url("/images/insurance.jpg")',
         filter: 'brightness(0.7)',
       }}
     />
@@ -135,7 +135,7 @@ const Insurance = () => {
               Don't see your insurance provider?
             </h3>
             <Link
-              to="/contact-us"
+              to="/contact"
               className="inline-flex items-center bg-white text-purple-900 px-8 py-4 rounded-full font-montserrat font-semibold hover:bg-purple-100 transition-all duration-300 hover:scale-105"
             >
               Contact Us Today

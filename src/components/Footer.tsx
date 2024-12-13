@@ -11,75 +11,43 @@ import {
 import { BsArrowRight } from 'react-icons/bs';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
-      {/* Decorative Background Element */}      
-      {/* Main Footer Content */}
-      <div className="relative container mx-auto px-4 py-20">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          {/* Company Info */}
+    <footer className="bg-gray-900 text-gray-300 py-20">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+          {/* Brand Column */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold font-montserrat">Nurture Path</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Empowering relationships through expert therapy and compassionate guidance. Your journey to stronger connections starts here.
+            <div className="flex items-center">
+              <span className="ml-3 text-2xl font-montserrat text-white">Nurture Path</span>
+            </div>
+            <p className="text-gray-400 leading-relaxed text-sm">
+              Empowering relationships through expert therapy and compassionate guidance. 
+              Your journey to stronger connections starts here.
             </p>
             <div className="flex space-x-5">
-              <a href="https://facebook.com" className="text-white/70 hover:text-purple-400 transition-colors duration-300">
-                <FaFacebookSquare size={24} />
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaFacebookSquare className="text-2xl" />
               </a>
-              <a href="https://linkedin.com" className="text-white/70 hover:text-purple-400 transition-colors duration-300">
-                <FaLinkedin size={24} />
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaLinkedin className="text-2xl" />
               </a>
-              <a href="https://instagram.com" className="text-white/70 hover:text-purple-400 transition-colors duration-300">
-                <FaInstagram size={24} />
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaInstagram className="text-2xl" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-8 font-montserrat text-white/90">Quick Links</h3>
+          <div className="space-y-6">
+            <h3 className="text-xl font-montserrat font-semibold text-white">Quick Links</h3>
             <ul className="space-y-4">
-              {[
-                { text: 'About Us', path: '/about-us' },
-                { text: 'Our Services', path: '/services' },
-                { text: 'Relationship Resources', path: '/resources' },
-                { text: 'Join Our Team', path: '/careers' },
-                { text: 'Contact', path: '/contact' }
-              ].map((link, index) => (
-                <li key={index}>
+              {['About Us', 'Our Services', 'Relationship Resources', 'Join Our Team', 'Contact'].map((link) => (
+                <li key={link}>
                   <Link 
-                    to={link.path}
-                    className="text-gray-400 hover:text-purple-300 transition-all duration-300 flex items-center group"
+                    to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
                   >
-                    <BsArrowRight className="mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
-                    {link.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-bold mb-8 font-montserrat text-white/90">Our Services</h3>
-            <ul className="space-y-4">
-              {[
-                'Couples Therapy',
-                'Family Counseling',
-                'Individual Growth',
-                'Relationship Workshops',
-                'Premarital Counseling'
-              ].map((service, index) => (
-                <li key={index}>
-                  <Link 
-                    to="/services" 
-                    className="text-gray-400 hover:text-purple-300 transition-all duration-300"
-                  >
-                    {service}
+                    {link}
                   </Link>
                 </li>
               ))}
@@ -87,56 +55,63 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <Link to="/contact">
-              <h3 className="text-lg font-bold mb-8 font-montserrat text-white/90 hover:text-purple-300 transition-all duration-300">
-                Contact Us
-              </h3>
-            </Link>
-            <ul className="space-y-6">
-              <li className="flex items-start space-x-3">
-                <FaMapMarkerAlt className="text-purple-400 mt-1 flex-shrink-0" />
-                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
-                  <span>
-                    123 Therapy Lane<br />
-                    Suite 100<br />
-                    Edison, NJ 08837
-                  </span>
-                </Link>
-              </li>
-              <li className="flex items-center space-x-3">
-                <FaPhone className="text-purple-400 flex-shrink-0" />
-                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
+          <div className="space-y-6">
+            <h3 className="text-xl font-montserrat font-semibold text-white">Contact Us</h3>
+            <div className="space-y-4">
+              <p className="flex items-start space-x-3 text-sm">
+                <FaMapMarkerAlt className="text-purple-400 mt-1 text-lg" />
+                <span className="text-gray-400">123 Therapy Lane<br />Suite 100<br />Edison, NJ 08837</span>
+              </p>
+              <p className="flex items-center space-x-3 text-sm">
+                <FaPhone className="text-purple-400 text-lg" />
+                <a href="tel:201-720-8600" className="text-gray-400 hover:text-purple-400 transition-colors">
                   201-720-8600
-                </Link>
-              </li>
-              <li className="flex items-center space-x-3">
-                <FaEnvelope className="text-purple-400 flex-shrink-0" />
-                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
+                </a>
+              </p>
+              <p className="flex items-center space-x-3 text-sm">
+                <FaEnvelope className="text-purple-400 text-lg" />
+                <a href="mailto:info@nurturepath.com" className="text-gray-400 hover:text-purple-400 transition-colors">
                   info@nurturepath.com
-                </Link>
-              </li>
-            </ul>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-montserrat font-semibold text-white">Hours</h3>
+            <div className="space-y-4 text-sm">
+              <p className="flex justify-between text-gray-400">
+                <span>Monday - Friday</span>
+                <span>9 AM - 5 PM</span>
+              </p>
+              <p className="flex justify-between text-gray-400">
+                <span>Saturday</span>
+                <span>10 AM - 4 PM</span>
+              </p>
+              <p className="flex justify-between text-gray-400">
+                <span>Sunday</span>
+                <span>Closed</span>
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} Nurture Path. All rights reserved.
-            </p>
-            <div className="flex space-x-8 md:justify-end text-sm text-gray-500">
-              <Link to="/privacy" className="hover:text-purple-300 transition-all duration-300">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="hover:text-purple-300 transition-all duration-300">
-                Terms of Service
-              </Link>
-              <Link to="/accessibility" className="hover:text-purple-300 transition-all duration-300">
-                Accessibility
-              </Link>
-            </div>
+        {/* Bottom Bar */}
+        <div className="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-gray-500 text-sm">
+            © 2024 Nurture Path. All rights reserved.
+          </p>
+          <div className="flex space-x-8 text-sm">
+            <Link to="/privacy-policy" className="text-gray-500 hover:text-purple-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-500 hover:text-purple-400 transition-colors">
+              Terms of Service
+            </Link>
+            <Link to="/accessibility" className="text-gray-500 hover:text-purple-400 transition-colors">
+              Accessibility
+            </Link>
           </div>
         </div>
       </div>

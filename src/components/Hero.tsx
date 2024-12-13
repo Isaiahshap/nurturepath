@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -55,7 +54,7 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Link 
-                  to="/contact-us" 
+                  to="/contact" 
                   className="inline-flex items-center justify-center px-8 py-4 bg-purple-600 text-white rounded-lg font-lato font-semibold hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
                   Schedule a Consultation

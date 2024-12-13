@@ -27,7 +27,6 @@ const Contact = () => {
       phone: "(212) 555-0123",
       email: "manhattan@nurturepath.com",
       features: ["In-Person Sessions", "Virtual Therapy", "Evening Hours"],
-      image: "/images/locations/manhattan.jpg",
       state: "NY"
     },
     {
@@ -37,18 +36,16 @@ const Contact = () => {
       phone: "(718) 555-0456",
       email: "brooklyn@nurturepath.com",
       features: ["In-Person Sessions", "Weekend Hours", "Group Sessions"],
-      image: "/images/locations/brooklyn.jpg",
       state: "NY"
     },
     {
-        name: "Queens Center",
-        address: "789 Queens Boulevard, Suite 200",
-        city: "Queens, NY 11428",
-        phone: "(718) 555-0789",
-        email: "queens@nurturepath.com",
-        features: ["In-Person Sessions", "Weekend Hours", "Group Sessions"],
-        image: "/images/locations/queens.jpg",
-        state: "NY"
+      name: "Queens Center",
+      address: "789 Queens Boulevard, Suite 200",
+      city: "Queens, NY 11428",
+      phone: "(718) 555-0789",
+      email: "queens@nurturepath.com",
+      features: ["In-Person Sessions", "Weekend Hours", "Group Sessions"],
+      state: "NY"
     },
     // New Jersey Locations
     {
@@ -58,7 +55,6 @@ const Contact = () => {
       phone: "(201) 555-0456",
       email: "jerseycity@nurturepath.com",
       features: ["In-Person Sessions", "Virtual Therapy", "Family Sessions"],
-      image: "/images/locations/jersey-city.jpg",
       state: "NJ"
     },
     {
@@ -68,18 +64,16 @@ const Contact = () => {
       phone: "(201) 555-0789",
       email: "hoboken@nurturepath.com",
       features: ["In-Person Sessions", "Evening Hours", "Couples Therapy"],
-      image: "/images/locations/hoboken.jpg",
       state: "NJ"
     },
     {
-        name: "Westchester Office",
-        address: "789 Washington Street, Suite 400",
-        city: "Hoboken, NJ 07030",
-        phone: "(201) 555-0789",
-        email: "hoboken@nurturepath.com",
-        features: ["In-Person Sessions", "Evening Hours", "Couples Therapy"],
-        image: "/images/locations/hoboken.jpg",
-        state: "NJ"
+      name: "Westchester Office",
+      address: "789 Washington Street, Suite 400",
+      city: "Hoboken, NJ 07030",
+      phone: "(201) 555-0789",
+      email: "hoboken@nurturepath.com",
+      features: ["In-Person Sessions", "Evening Hours", "Couples Therapy"],
+      state: "NJ"
     }
   ];
 
@@ -134,13 +128,6 @@ const Contact = () => {
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl shadow-lg overflow-hidden"
             >
-              <div className="aspect-w-16 aspect-h-9">
-                <img 
-                  src={location.image} 
-                  alt={location.name}
-                  className="object-cover w-full h-full"
-                />
-              </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-2xl font-bold font-montserrat">{location.name}</h3>
