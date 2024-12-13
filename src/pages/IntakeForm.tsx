@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaChild, FaUser, FaHospital, FaClock, FaShieldAlt, FaPhone, FaCalendar, FaBuilding } from 'react-icons/fa';
+import { FaUser, FaUsers, FaClipboardList, FaRing, FaHome, FaHistory, FaListAlt } from 'react-icons/fa';
+import CustomDropdown from '../components/CustomDropdown';
 
 const IntakeForm = () => {
   const fadeIn = {
@@ -10,61 +11,37 @@ const IntakeForm = () => {
     transition: { duration: 0.8 }
   };
 
-  const [isHoursOpen, setIsHoursOpen] = useState(false);
-  const [selectedHours, setSelectedHours] = useState('');
-  const dropdownRef = useRef(null);
-  const [isStateOpen, setIsStateOpen] = useState(false);
-  const stateRef = useRef(null);
-  const [selectedState, setSelectedState] = useState('');
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsHoursOpen(false);
-      }
-      if (stateRef.current && !stateRef.current.contains(event.target)) {
-        setIsStateOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  const [sessionType, setSessionType] = useState('');
+  const sessionRef = useRef(null);
+  const [isSessionTypeOpen, setIsSessionTypeOpen] = useState(false);
+  const [relationshipStatus, setRelationshipStatus] = useState('');
+  const [timeframe, setTimeframe] = useState('');
 
-  const hoursOptions = [
-    { value: '10', label: '10 hours per week' },
-    { value: '20', label: '20 hours per week' },
-    { value: '30', label: '30 hours per week' },
-    { value: '40', label: '40 hours per week' },
+
+  const sessionTypes = [
+    { value: 'couples', label: 'Couples Therapy' },
+    { value: 'family', label: 'Family Therapy' },
+    { value: 'individual', label: 'Individual Therapy' },
+    { value: 'premarital', label: 'Premarital Counseling' },
   ];
 
-  const dropdownClasses = `
-    absolute z-20 left-0 mt-2 w-full 
-    bg-white rounded-xl shadow-lg 
-    transform opacity-0 scale-95 
-    transition-all duration-200 ease-in-out origin-top
-    ${isHoursOpen ? 'opacity-100 scale-100' : 'invisible'}
-  `;
+  const relationshipStatusOptions = [
+    { value: 'married', label: 'Married' },
+    { value: 'engaged', label: 'Engaged' },
+    { value: 'dating', label: 'Dating' },
+    { value: 'separated', label: 'Separated' },
+    { value: 'divorced', label: 'Divorced' },
+    { value: 'single', label: 'Single' },
+    { value: 'other', label: 'Other' }
+  ];
 
-  const dropdownItemClasses = `
-    block w-full px-4 py-3 text-left text-gray-700 
-    hover:text-purple-600 hover:bg-purple-50 
-    transition-colors duration-200 
-    first:rounded-t-xl last:rounded-b-xl
-    relative after:content-[''] 
-    after:absolute after:w-[calc(100%-2rem)] 
-    after:h-0.5 after:bg-purple-600 
-    after:left-4 after:bottom-0 
-    after:scale-x-0 hover:after:scale-x-100 
-    after:transition-transform after:duration-300 
-    after:origin-left
-  `;
-
-  const states = [
-    { value: 'NJ', label: 'New Jersey' },
-    { value: 'TX', label: 'Texas' },
-    { value: 'GA', label: 'Georgia' },
-    // Add other states as needed
+  const timeframeOptions = [
+    { value: 'less-than-month', label: 'Less than 1 month' },
+    { value: '1-6-months', label: '1-6 months' },
+    { value: '6-12-months', label: '6-12 months' },
+    { value: '1-2-years', label: '1-2 years' },
+    { value: 'more-than-2-years', label: 'More than 2 years' }
   ];
 
   return (
@@ -72,10 +49,11 @@ const IntakeForm = () => {
       <motion.div {...fadeIn} className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-montserrat">
-            ABA Therapy <span className="text-purple-600">Intake Form</span>
+            Therapy <span className="text-purple-600">Intake Form</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Please complete this form to help us better understand your needs. Our staff will follow up within 48 hours.
+            Please complete this confidential form to help us understand your needs. 
+            Our team will contact you within 24 hours to schedule your consultation.
           </p>
         </div>
 
@@ -84,10 +62,10 @@ const IntakeForm = () => {
           <section className="space-y-8">
             <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
               <div className="bg-purple-100 p-2 rounded-full">
-                <FaChild className="text-2xl text-purple-600" />
+                <FaUser className="text-2xl text-purple-600" />
               </div>
               <h2 className="text-2xl font-bold font-montserrat text-gray-800">
-                Patient Information
+                Primary Contact Information
               </h2>
             </div>
 
@@ -101,7 +79,7 @@ const IntakeForm = () => {
                   id="firstName"
                   name="firstName"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
                   placeholder="Enter first name"
                 />
               </div>
@@ -115,241 +93,282 @@ const IntakeForm = () => {
                   id="lastName"
                   name="lastName"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
                   placeholder="Enter last name"
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="parentGuardian" className="block text-sm font-semibold text-gray-700">
-                  Parent or Legal Guardian Name <span className="text-purple-600">*</span>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
+                  Email Address <span className="text-purple-600">*</span>
                 </label>
                 <input
-                  type="text"
-                  id="parentGuardian"
-                  name="parentGuardian"
+                  type="email"
+                  id="email"
+                  name="email"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter parent/guardian name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="Enter email address"
                 />
               </div>
             </div>
           </section>
 
-          {/* Contact Information */}
+          {/* Relationship Status Section */}
           <section className="space-y-8">
             <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
               <div className="bg-purple-100 p-2 rounded-full">
-                <FaPhone className="text-2xl text-purple-600" />
+                <FaRing className="text-2xl text-purple-600" />
               </div>
               <h2 className="text-2xl font-bold font-montserrat text-gray-800">
-                Contact Information
+                Relationship Status
               </h2>
             </div>
 
             <div className="space-y-6">
               <div className="space-y-2">
-                <label htmlFor="address" className="block text-sm font-semibold text-gray-700">
-                  Street Address <span className="text-purple-600">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter street address"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="city" className="block text-sm font-semibold text-gray-700">
-                  City <span className="text-purple-600">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter city"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2" ref={stateRef}>
-                  <label className="block text-sm font-semibold text-gray-700">
-                    State <span className="text-purple-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <button
-                      type="button"
-                      onClick={() => setIsStateOpen(!isStateOpen)}
-                      className="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg 
-                                 focus:ring-2 focus:ring-purple-500 focus:border-transparent 
-                                 transition-all duration-200 flex justify-between items-center"
-                      value={selectedState}
-                    >
-                      <span className={selectedState ? 'text-gray-900' : 'text-gray-500'}>
-                        {selectedState ? states.find(s => s.value === selectedState)?.label : 'Select State'}
-                      </span>
-                      <svg 
-                        className={`w-5 h-5 text-gray-400 transition-transform duration-200 
-                                   ${isStateOpen ? 'rotate-180' : ''}`}
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-
-                    <div className={`
-                      absolute z-20 left-0 mt-2 w-full 
-                      bg-white rounded-xl shadow-lg 
-                      transform opacity-0 scale-95 
-                      transition-all duration-200 ease-in-out
-                      ${isStateOpen ? 'opacity-100 scale-100' : 'invisible'}
-                    `}>
-                      {states.map((state) => (
-                        <button
-                          key={state.value}
-                          type="button"
-                          onClick={() => {
-                            setSelectedState(state.value);
-                            setIsStateOpen(false);
-                          }}
-                          className="block w-full px-4 py-3 text-left text-gray-700 
-                                     hover:bg-purple-50 hover:text-purple-600
-                                     transition-colors duration-200 
-                                     first:rounded-t-xl last:rounded-b-xl"
-                        >
-                          {state.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                  <input type="hidden" name="state" value={selectedState} required />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="zipCode" className="block text-sm font-semibold text-gray-700">
-                    ZIP Code <span className="text-purple-600">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="zipCode"
-                    name="zipCode"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Enter ZIP code"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Service Availability */}
-          <section className="space-y-8">
-            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
-              <div className="bg-purple-100 p-2 rounded-full">
-                <FaCalendar className="text-2xl text-purple-600" />
-              </div>
-              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
-                Days and Hours Desired for ABA Services
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
-                <div key={day} className="space-y-2">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    {day} <span className="text-purple-600">*</span>
-                  </label>
-                  <div className="flex space-x-6">
-                    <label className="flex items-center space-x-3 cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="radio"
-                          name={day.toLowerCase()}
-                          value="available"
-                          className="appearance-none w-5 h-5 border-2 border-gray-300 rounded-full 
-                                     checked:border-purple-600 checked:border-6
-                                     transition-all duration-200 cursor-pointer"
-                        />
-                      </div>
-                      <span className="text-gray-700 group-hover:text-purple-600 transition-colors duration-200">
-                        Available
-                      </span>
-                    </label>
-                    <label className="flex items-center space-x-3 cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="radio"
-                          name={day.toLowerCase()}
-                          value="not_available"
-                          className="appearance-none w-5 h-5 border-2 border-gray-300 rounded-full 
-                                     checked:border-purple-600 checked:border-6
-                                     transition-all duration-200 cursor-pointer"
-                        />
-                      </div>
-                      <span className="text-gray-700 group-hover:text-purple-600 transition-colors duration-200">
-                        Not Available
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              ))}
-
-              <div className="space-y-2" ref={dropdownRef}>
                 <label className="block text-sm font-semibold text-gray-700">
-                  Total Weekly Hours ABA Service Desired <span className="text-purple-600">*</span>
+                  Current Relationship Status <span className="text-purple-600">*</span>
                 </label>
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setIsHoursOpen(!isHoursOpen)}
-                    className="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg 
-                               focus:ring-2 focus:ring-purple-500 focus:border-transparent 
-                               transition-all duration-200 flex justify-between items-center"
-                  >
-                    <span className={selectedHours ? 'text-gray-900' : 'text-gray-500'}>
-                      {selectedHours ? `${selectedHours} hours per week` : 'Please select hours'}
-                    </span>
-                    <svg 
-                      className={`w-5 h-5 text-gray-400 transition-transform duration-200 
-                                 ${isHoursOpen ? 'rotate-180' : ''}`}
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  <div className={dropdownClasses}>
-                    {hoursOptions.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => {
-                          setSelectedHours(option.value);
-                          setIsHoursOpen(false);
-                        }}
-                        className={dropdownItemClasses}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <input 
-                  type="hidden" 
-                  name="totalHours" 
-                  value={selectedHours} 
-                  required 
+                <CustomDropdown
+                  options={relationshipStatusOptions}
+                  value={relationshipStatus}
+                  onChange={setRelationshipStatus}
+                  placeholder="Select status"
+                  required
+                  name="relationshipStatus"
                 />
               </div>
+
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Length of Current Relationship
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="e.g., 5 years"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Living Situation Section */}
+          <section className="space-y-8">
+            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
+              <div className="bg-purple-100 p-2 rounded-full">
+                <FaHome className="text-2xl text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
+                Living Situation
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Who currently lives in your household? <span className="text-purple-600">*</span>
+                </label>
+                <textarea
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="Please list all household members and their ages"
+                  rows={3}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Are there any children from previous relationships? <span className="text-purple-600">*</span>
+                </label>
+                <div className="flex gap-4">
+                  <label className="flex items-center">
+                    <input type="radio" name="previousChildren" value="yes" className="mr-2" />
+                    Yes
+                  </label>
+                  <label className="flex items-center">
+                    <input type="radio" name="previousChildren" value="no" className="mr-2" />
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Therapy History Section */}
+          <section className="space-y-8">
+            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
+              <div className="bg-purple-100 p-2 rounded-full">
+                <FaHistory className="text-2xl text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
+                Previous Therapy Experience
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Have you attended therapy before? <span className="text-purple-600">*</span>
+                </label>
+                <div className="flex gap-4">
+                  <label className="flex items-center">
+                    <input type="radio" name="previousTherapy" value="yes" className="mr-2" />
+                    Yes
+                  </label>
+                  <label className="flex items-center">
+                    <input type="radio" name="previousTherapy" value="no" className="mr-2" />
+                    No
+                  </label>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  If yes, please describe your previous therapy experience
+                </label>
+                <textarea
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="When did you attend, what type of therapy, and what was helpful/unhelpful?"
+                  rows={4}
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Specific Concerns Section - Add before the existing concerns section */}
+          <section className="space-y-8">
+            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
+              <div className="bg-purple-100 p-2 rounded-full">
+                <FaListAlt className="text-2xl text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
+                Specific Concerns
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Please select all that apply: <span className="text-purple-600">*</span>
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Communication Issues",
+                    "Trust/Infidelity",
+                    "Parenting Challenges",
+                    "Blended Family Issues",
+                    "Anger Management",
+                    "Financial Stress",
+                    "Intimacy Concerns",
+                    "Separation/Divorce",
+                    "Grief/Loss",
+                    "Mental Health",
+                    "Substance Use",
+                    "Cultural/Religious Differences"
+                  ].map((concern) => (
+                    <label key={concern} className="flex items-center space-x-2">
+                      <input type="checkbox" name="concerns" value={concern.toLowerCase()} />
+                      <span>{concern}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <CustomDropdown
+                  options={timeframeOptions}
+                  value={timeframe}
+                  onChange={setTimeframe}
+                  placeholder="Select timeframe"
+                  label="How long have these concerns been present?"
+                  name="timeframe"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Session Type Section */}
+          <section className="space-y-8">
+            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
+              <div className="bg-purple-100 p-2 rounded-full">
+                <FaUsers className="text-2xl text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
+                Type of Therapy
+              </h2>
+            </div>
+
+            <div className="space-y-2" ref={sessionRef}>
+              <div className="relative">
+                <CustomDropdown
+                  options={sessionTypes}
+                  value={sessionType}
+                  onChange={setSessionType}
+                  placeholder="Select therapy type"
+                  required
+                  label="What type of therapy are you seeking?"
+                  name="sessionType"
+                />
+              </div>
+            </div>
+
+            {sessionType === 'couples' && (
+              <div className="space-y-2">
+                <label htmlFor="partnerName" className="block text-sm font-semibold text-gray-700">
+                  Partner's Name <span className="text-purple-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="partnerName"
+                  name="partnerName"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="Enter partner's name"
+                />
+              </div>
+            )}
+
+            {sessionType === 'family' && (
+              <div className="space-y-2">
+                <label htmlFor="familyMembers" className="block text-sm font-semibold text-gray-700">
+                  Family Members Attending <span className="text-purple-600">*</span>
+                </label>
+                <textarea
+                  id="familyMembers"
+                  name="familyMembers"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                  placeholder="Please list the names and ages of family members who will be attending"
+                  rows={4}
+                />
+              </div>
+            )}
+          </section>
+
+          {/* Concerns Section */}
+          <section className="space-y-8">
+            <div className="flex items-center space-x-4 pb-4 border-b border-gray-200">
+              <div className="bg-purple-100 p-2 rounded-full">
+                <FaClipboardList className="text-2xl text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold font-montserrat text-gray-800">
+                Primary Concerns
+              </h2>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="concerns" className="block text-sm font-semibold text-gray-700">
+                What brings you to therapy? <span className="text-purple-600">*</span>
+              </label>
+              <textarea
+                id="concerns"
+                name="concerns"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-200"
+                placeholder="Please briefly describe your main concerns and what you hope to achieve through therapy"
+                rows={6}
+              />
             </div>
           </section>
 

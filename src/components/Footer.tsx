@@ -15,9 +15,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
-      {/* Decorative Background Element */}
-      <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
-      
+      {/* Decorative Background Element */}      
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-4 py-20">
         {/* Top Section */}
@@ -90,23 +88,33 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-8 font-montserrat text-white/90">Contact Us</h3>
+            <Link to="/contact">
+              <h3 className="text-lg font-bold mb-8 font-montserrat text-white/90 hover:text-purple-300 transition-all duration-300">
+                Contact Us
+              </h3>
+            </Link>
             <ul className="space-y-6">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-purple-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-400">123 Therapy Lane<br />Suite 100<br />Edison, NJ 08837</span>
+                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
+                  <span>
+                    123 Therapy Lane<br />
+                    Suite 100<br />
+                    Edison, NJ 08837
+                  </span>
+                </Link>
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhone className="text-purple-400 flex-shrink-0" />
-                <a href="tel:201-720-8600" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
+                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
                   201-720-8600
-                </a>
+                </Link>
               </li>
               <li className="flex items-center space-x-3">
                 <FaEnvelope className="text-purple-400 flex-shrink-0" />
-                <a href="mailto:info@nurturepath.com" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
+                <Link to="/contact" className="text-gray-400 hover:text-purple-300 transition-all duration-300">
                   info@nurturepath.com
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

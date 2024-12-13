@@ -42,7 +42,7 @@ const Locations = () => {
 
   const locations = [
     {
-      name: "Manhattan Office",
+      name: "Manhattan Center",
       address: "123 Madison Avenue, Suite 500",
       city: "New York, NY 10016",
       phone: "(212) 555-0123",
@@ -54,7 +54,31 @@ const Locations = () => {
       color: "from-blue-100 to-blue-200"
     },
     {
-      name: "Jersey City Office",
+      name: "Brooklyn Heights",
+      address: "456 Atlantic Avenue, Suite 300",
+      city: "Brooklyn, NY 11201",
+      phone: "(718) 555-0456",
+      email: "brooklyn@nurturepath.com",
+      features: ["Wheelchair Accessible", "Public Transit Nearby", "Parking Available"],
+      icons: [FaWheelchair, FaBus, FaParking],
+      hours: "Mon-Fri: 9am-7pm, Sat: 10am-4pm",
+      mapUrl: "https://maps.google.com/?q=456+Atlantic+Avenue+Brooklyn",
+      color: "from-blue-100 to-blue-200"
+    },
+    {
+      name: "Long Island Office",
+      address: "789 Northern Blvd, Suite 200",
+      city: "Great Neck, NY 11021",
+      phone: "(516) 555-0789",
+      email: "longisland@nurturepath.com",
+      features: ["Wheelchair Accessible", "Public Transit Nearby", "Parking Available"],
+      icons: [FaWheelchair, FaBus, FaParking],
+      hours: "Mon-Fri: 9am-6pm, Sat: 9am-3pm",
+      mapUrl: "https://maps.google.com/?q=789+Northern+Blvd+Great+Neck",
+      color: "from-blue-100 to-blue-200"
+    },
+    {
+      name: "Jersey City Center",
       address: "456 Grove Street, Suite 300",
       city: "Jersey City, NJ 07302",
       phone: "(201) 555-0456",
@@ -63,6 +87,30 @@ const Locations = () => {
       icons: [FaWheelchair, FaBus, FaParking],
       hours: "Mon-Fri: 9am-7pm, Sat: 10am-4pm",
       mapUrl: "https://maps.google.com/?q=456+Grove+Street+NJ",
+      color: "from-purple-100 to-purple-200"
+    },
+    {
+      name: "Hoboken Office",
+      address: "789 Washington Street, Suite 400",
+      city: "Hoboken, NJ 07030",
+      phone: "(201) 555-0789",
+      email: "hoboken@nurturepath.com",
+      features: ["Wheelchair Accessible", "Public Transit Nearby", "Parking Available"],
+      icons: [FaWheelchair, FaBus, FaParking],
+      hours: "Mon-Fri: 9am-7pm, Sat: 9am-3pm",
+      mapUrl: "https://maps.google.com/?q=789+Washington+Street+Hoboken",
+      color: "from-purple-100 to-purple-200"
+    },
+    {
+      name: "Newark Center",
+      address: "123 Market Street, Suite 200",
+      city: "Newark, NJ 07102",
+      phone: "(973) 555-0123",
+      email: "newark@nurturepath.com",
+      features: ["Wheelchair Accessible", "Public Transit Nearby", "Parking Available"],
+      icons: [FaWheelchair, FaBus, FaParking],
+      hours: "Mon-Fri: 8am-6pm, Sat: 9am-2pm",
+      mapUrl: "https://maps.google.com/?q=123+Market+Street+Newark",
       color: "from-purple-100 to-purple-200"
     }
   ];

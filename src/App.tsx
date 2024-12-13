@@ -17,6 +17,11 @@ import Texas from './pages/Texas';
 import Georgia from './pages/Georgia';
 import IntakeForm from './pages/IntakeForm';
 import Insurance from './pages/Insurance';
+import NewYork from './pages/NewYork';
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import Accessibility from './pages/Accessibility';
 
 function App() {
   return (
@@ -36,12 +41,17 @@ function App() {
           
           {/* Location Routes */}
           <Route path="/locations" element={<Locations />} />
+          <Route path="/new-york" element={<NewYork />} />
           <Route path="/new-jersey" element={<NewJersey />} />
           <Route path="/texas" element={<Texas />} />
           <Route path="/georgia" element={<Georgia />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/intake-form" element={<IntakeForm />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/accessibility" element={<Accessibility />} />
         </Routes>
       </main>
       <Footer />

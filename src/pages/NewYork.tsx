@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const NewJerseyHero = () => (
+const NewYorkHero = () => (
   <div className="relative h-[60vh] w-screen -ml-[50vw] left-1/2 right-1/2 mb-16">
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url("/images/nj-hero.jpg")',
+        backgroundImage: 'url("/images/ny-hero.jpg")',
         filter: 'brightness(0.7)',
       }}
     />
@@ -20,20 +20,20 @@ const NewJerseyHero = () => (
           transition={{ duration: 0.6 }}
           className="inline-block mb-4 text-purple-300 font-montserrat font-semibold tracking-wider uppercase"
         >
-          New Jersey Locations
+          New York Locations
         </motion.span>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat">
-          Garden State Therapy
+          Empire State Therapy
         </h1>
         <p className="text-xl md:text-2xl font-montserrat max-w-2xl mx-auto">
-          Professional Marriage & Family Therapy in New Jersey
+          Professional Marriage & Family Therapy in New York
         </p>
       </div>
     </div>
   </div>
 );
 
-const NewJersey = () => {
+const NewYork = () => {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -43,45 +43,45 @@ const NewJersey = () => {
 
   const locations = [
     {
-      name: "Jersey City Center",
-      address: "456 Grove Street, Suite 300",
-      city: "Jersey City, NJ 07302",
-      phone: "(201) 555-0456",
-      email: "jerseycity@nurturepath.com",
-      features: ["Couples Therapy", "Family Counseling", "Individual Therapy"],
-      image: "/images/locations/jersey-city.jpg"
+      name: "Manhattan Center",
+      address: "123 Madison Avenue, Suite 500",
+      city: "New York, NY 10016",
+      phone: "(212) 555-0123",
+      email: "manhattan@nurturepath.com",
+      features: ["Couples Therapy", "Family Counseling", "Premarital Counseling"],
+      image: "/images/locations/manhattan.jpg"
     },
     {
-      name: "Hoboken Office",
-      address: "789 Washington Street, Suite 400",
-      city: "Hoboken, NJ 07030",
-      phone: "(201) 555-0789",
-      email: "hoboken@nurturepath.com",
-      features: ["Marriage Counseling", "Relationship Therapy", "Group Sessions"],
-      image: "/images/locations/hoboken.jpg"
+      name: "Brooklyn Heights",
+      address: "456 Atlantic Avenue, Suite 300",
+      city: "Brooklyn, NY 11201",
+      phone: "(718) 555-0456",
+      email: "brooklyn@nurturepath.com",
+      features: ["Marriage Counseling", "Relationship Therapy", "Family Systems"],
+      image: "/images/locations/brooklyn.jpg"
     },
     {
-      name: "Newark Center",
-      address: "123 Market Street, Suite 200",
-      city: "Newark, NJ 07102",
-      phone: "(973) 555-0123",
-      email: "newark@nurturepath.com",
-      features: ["Family Therapy", "Teen Counseling", "Couples Workshops"],
-      image: "/images/locations/newark.jpg"
+      name: "Long Island Office",
+      address: "789 Northern Blvd, Suite 200",
+      city: "Great Neck, NY 11021",
+      phone: "(516) 555-0789",
+      email: "longisland@nurturepath.com",
+      features: ["Couples Workshops", "Teen Counseling", "Group Sessions"],
+      image: "/images/locations/longisland.jpg"
     }
   ];
 
   return (
     <div className="min-h-screen">
-      <NewJerseyHero />
+      <NewYorkHero />
       
       <motion.div {...fadeIn} className="container mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat">
-            Our New Jersey <span className="text-purple-600">Locations</span>
+            Our New York <span className="text-purple-600">Locations</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            With multiple locations throughout New Jersey, we provide convenient access 
+            With multiple locations throughout New York, we provide convenient access 
             to professional marriage and family therapy services.
           </p>
         </div>
@@ -152,7 +152,7 @@ const NewJersey = () => {
             </h3>
             <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
               Take the first step towards stronger relationships.
-              Schedule your consultation at any of our New Jersey locations.
+              Schedule your consultation at any of our New York locations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -175,4 +175,4 @@ const NewJersey = () => {
   );
 };
 
-export default NewJersey; 
+export default NewYork; 

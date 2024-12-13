@@ -41,8 +41,15 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-gray-800 font-montserrat">Nurture Path</span>
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/images/logo.png" 
+              alt="Nurture Path Logo" 
+              className="h-8 w-auto"
+            />
+            <span className="text-2xl font-bold font-montserrat">
+              Nurture <span className="text-purple-600">Path</span>
+            </span>
           </Link>
 
           {/* Navigation Links */}
@@ -83,9 +90,8 @@ function Navbar() {
                 </svg>
               </Link>
               <div className={`${dropdownClasses} ${isLocationsOpen ? 'opacity-100 scale-100' : ''}`}>
+                <Link to="/new-york" className={dropdownItemClasses}>New York</Link>
                 <Link to="/new-jersey" className={dropdownItemClasses}>New Jersey</Link>
-                <Link to="/texas" className={dropdownItemClasses}>Texas</Link>
-                <Link to="/georgia" className={dropdownItemClasses}>Georgia</Link>
               </div>
             </div>
 
@@ -93,7 +99,7 @@ function Navbar() {
             <Link to="/insurance" className={navLinkClasses}>Insurance</Link>
           </div>
 
-          {/* CTA Buttons with new animations */}
+          {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/intake-form"

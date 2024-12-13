@@ -118,7 +118,14 @@ function Home() {
                 transition={{ duration: 0.6 }}
                 className="inline-block mb-4 text-purple-600 font-semibold tracking-wider uppercase"
               >
-                Our Services
+                <div className="flex items-center space-x-2">
+                  <img 
+                    src="/images/logo.png" 
+                    alt="Nurture Path Logo" 
+                    className="h-6 w-auto"
+                  />
+                  <span>Our Services</span>
+                </div>
               </motion.span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat text-gray-900">
                 Professional Therapy <br />
@@ -185,9 +192,16 @@ function Home() {
       <section className="py-24 bg-white">
         <motion.div {...fadeIn} className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat text-gray-900">
-              Client <span className="text-purple-600">Stories</span>
-            </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <img 
+                src="/images/logo.png" 
+                alt="Nurture Path Logo" 
+                className="h-10 w-auto"
+              />
+              <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-gray-900">
+                Client <span className="text-purple-600">Stories</span>
+              </h2>
+            </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Real experiences from families who have found healing and growth through our therapy services.
             </p>
