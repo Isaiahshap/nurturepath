@@ -3,33 +3,30 @@
   "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
   "framework": "vite",
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/static/:path*",
+      "destination": "/static/:path*"
     },
     {
-      "src": "^/images/(.*)",
-      "dest": "/images/$1"
+      "source": "/images/:path*",
+      "destination": "/images/:path*"
     },
     {
-      "src": "^/favicon.ico",
-      "dest": "/favicon.ico"
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
     },
     {
-      "src": "^/manifest.json",
-      "dest": "/manifest.json"
+      "source": "/manifest.json",
+      "destination": "/manifest.json"
     },
     {
-      "src": "^/robots.txt",
-      "dest": "/robots.txt"
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
     },
     {
-      "src": ".*",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -51,5 +48,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true
 } 
